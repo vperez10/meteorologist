@@ -18,14 +18,14 @@ class ForecastController < ApplicationController
 
 def temp
           require 'open-uri'
-          url = "https://api.forecast.io/forecast/5fa7d55c02984ea9bcad2898c1e155c4/#{@lat},#{@lng}"
+          url = "https://api.forecast.io/forecast/d4496922b5aa2236a0a05a86812b20ed/#{@lat},#{@lng}"
 
                parsed_data = JSON.parse(open(url).read)
                temperature = parsed_data["currently"]["temperature"]
     end
 
 
-    @current_temperature = "Replace this string with your answer."
+    @current_temperature = temp
 
     @current_summary = "Replace this string with your answer."
 
