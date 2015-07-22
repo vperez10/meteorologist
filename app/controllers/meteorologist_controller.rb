@@ -16,7 +16,14 @@ class MeteorologistController < ApplicationController
     # A URL-safe version of the street address, with spaces and other illegal
     #   characters removed, is in the string url_safe_street_address.
     # ==========================================================================
+def temp
+          require 'open-uri'
+          url = "https://api.forecast.io/forecast/5fa7d55c02984ea9bcad2898c1e155c4/#{@lat},#{@lng}"
 
+               parsed_data = JSON.parse(open(url).read)
+latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
+longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
+    end
 
 
     @current_temperature = "Replace this string with your answer."

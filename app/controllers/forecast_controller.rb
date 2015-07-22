@@ -16,6 +16,13 @@ class ForecastController < ApplicationController
     # The longitude the user input is in the string @lng.
     # ==========================================================================
 
+def temp
+          require 'open-uri'
+          url = "https://api.forecast.io/forecast/5fa7d55c02984ea9bcad2898c1e155c4/#{@lat},#{@lng}"
+
+               parsed_data = JSON.parse(open(url).read)
+               temperature = parsed_data["currently"]["temperature"]
+    end
 
 
     @current_temperature = "Replace this string with your answer."
